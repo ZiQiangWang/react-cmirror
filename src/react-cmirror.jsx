@@ -62,8 +62,9 @@ class ReactCodeMirror extends Component {
   }
 
   render() {
+    const { className, style } = this.props;
     return (
-      <div className={`ReactCodeMirror ${this.props.className}`}>
+      <div className={className} style={style}>
         <textarea ref={(instance) => { this.textarea = instance; }} />
       </div>
     );
@@ -72,14 +73,16 @@ class ReactCodeMirror extends Component {
 
 ReactCodeMirror.defaultProps = {
   value: '',
-  className: '',
   options: {},
+  className: '',
+  style: {},
 };
 
 ReactCodeMirror.propTypes = {
   value: PropTypes.string,
-  className: PropTypes.string,
   options: PropTypes.object,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default ReactCodeMirror;

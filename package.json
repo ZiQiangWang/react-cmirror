@@ -1,5 +1,5 @@
 {
-  "name": "react-cm",
+  "name": "react-cmirror",
   "version": "1.0.0",
   "description": "Codemirror Component for React.js, all Codemirror options and event are supported.",
   "main": "./lib/react-cm.js",

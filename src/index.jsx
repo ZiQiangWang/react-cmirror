@@ -7,14 +7,16 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import ReactCodeMirror from './react-cm';
 import 'codemirror/mode/markdown/markdown';
+import ReactCodeMirror from './react-cmirror';
 
 render(
-  <ReactCodeMirror options={{
-    autofocus: true,
-    mode: 'markdown',
-  }}
+  <ReactCodeMirror
+    options={{
+      autofocus: true,
+      mode: 'markdown',
+    }}
+    /* eslint-disable no-unused-vars */
     onChange={(instance, changeObj) => {
       console.log(instance.getValue());
     }}
