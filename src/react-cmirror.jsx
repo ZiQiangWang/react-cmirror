@@ -5,7 +5,7 @@
  * @date    2017-08-01 23:26:21
  */
 
-import Codemirror from 'codemirror';
+import CodeMirror from 'codemirror';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'codemirror/lib/codemirror.css';
@@ -18,7 +18,7 @@ class ReactCodeMirror extends Component {
 
   componentDidMount() {
     // 生成codemirror实例
-    this.codemirror = Codemirror.fromTextArea(this.textarea, this.props.options);
+    this.codemirror = CodeMirror.fromTextArea(this.textarea, this.props.options);
 
     // 事件处理映射
     const eventDict = this.getEventHandleFromProps();
@@ -43,7 +43,11 @@ class ReactCodeMirror extends Component {
     }
   }
 
-  getCodeMirror = () => this.codemirror
+  // 获取codemirror实例
+  getCodeMirrorInstance = () => this.codemirror;
+
+  // 获取CodeMirror用于获取其中的一些常量
+  getCodemirror = () => CodeMirror;
 
   // 将props中所有的事件处理函数映射并保存
   getEventHandleFromProps = () => {
