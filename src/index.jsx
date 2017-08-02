@@ -11,19 +11,20 @@
 import React from 'react';
 import { render } from 'react-dom';
 import 'codemirror/mode/markdown/markdown';
-import ReactCodeMirror from '../lib/react-cmirror';
+import ReactCodeMirror from './react-cmirror';
 
 render(
   <ReactCodeMirror
+    ref={(instance) => {
+      console.log(instance.codemirror);
+      console.log(instance.codemirrorInstance);
+    }}
     options={{
       autofocus: true,
       mode: 'markdown',
     }}
-    onKeyHandled={(instance, name, event) => {
-    }}
 
     onChange={(instance, changeObj) => {
-      console.log(instance.keyNames);
       console.log(instance.getValue());
     }}
   />,

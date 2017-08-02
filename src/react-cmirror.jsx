@@ -14,26 +14,28 @@ class ReactCodeMirror extends Component {
   constructor(props) {
     super(props);
     this.codemirror = undefined;
+    this.codemirrorInstance = undefined;
   }
 
   componentDidMount() {
     // 生成codemirror实例
-    this.codemirror = CodeMirror.fromTextArea(this.textarea, this.props.options);
-
+    this.codemirrorInstance = CodeMirror.fromTextArea(this.textarea, this.props.options);
+    // 获取CodeMirror用于获取其中的一些常量
+    this.codemirror = CodeMirror;
     // 事件处理映射
     const eventDict = this.getEventHandleFromProps();
 
     Object.keys(eventDict).forEach((event) => {
-      this.codemirror.on(eventDict[event], this.props[event]);
+      this.codemirrorInstance.on(eventDict[event], this.props[event]);
     });
 
     // 初始化值
-    this.codemirror.setValue(this.props.value || '');
+    this.codemirrorInstance.setValue(this.props.value || '');
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== undefined && nextProps.value !== this.props.value) {
-      this.codemirror.setValue(nextProps.value);
+      this.codemirrorInstance.setValue(nextProps.value);
     }
   }
 
@@ -42,12 +44,6 @@ class ReactCodeMirror extends Component {
       this.codeMirror.toTextArea();
     }
   }
-
-  // 获取codemirror实例
-  getCodeMirrorInstance = () => this.codemirror;
-
-  // 获取CodeMirror用于获取其中的一些常量
-  getCodemirror = () => CodeMirror;
 
   // 将props中所有的事件处理函数映射并保存
   getEventHandleFromProps = () => {
