@@ -11,6 +11,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import 'codemirror/mode/markdown/markdown';
+import 'codemirror/theme/monokai.css';
 import ReactCodeMirror from './react-cmirror';
 
 render(
@@ -22,6 +23,7 @@ render(
     options={{
       autofocus: true,
       mode: 'markdown',
+      theme: 'monokai',
     }}
 
     onChange={(instance, changeObj) => {
