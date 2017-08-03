@@ -19,36 +19,6 @@ render(
   document.getElementById('root'),
 );
 ```
-Two-way bind usage:
-```js
-import React, {Component} from 'react';
-import ReactCodeMirror from 'react-cmirror';
-class Demo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      value: ""
-    }
-  }
-
-  handleChange = (instance, changeObj) => {
-    this.setState({
-      value: instance.getValue()
-    });
-  }
-
-  render() {
-    return (
-      <ReactCodeMirror 
-        value={this.state.value}
-        onChange={this.handleChange}
-        
-      />
-    )
-  }
-}
-export default Demo;
-```
 
 ## 4. Properties
 * `value`:  the editor value
@@ -88,7 +58,7 @@ You can get CodeMirror instance from `codemirrorInstance` and CodeMirror object 
 ```js
 componentDidMount() {
   this.codemirror = this.refs.codemirror;
-    this.codemirrorInstance = this.refs.codemirrorInstance;
+  this.codemirrorInstance = this.refs.codemirrorInstance;
 }
 <ReactCodeMirror ref="mirror" />
 ```
