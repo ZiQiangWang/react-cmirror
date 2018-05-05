@@ -1,12 +1,13 @@
 {
   "name": "react-cmirror",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Codemirror Component for React.js, all Codemirror options and event are supported.",
   "main": "./lib/react-cmirror.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "build": "npm run lint && rimraf lib && babel src --out-dir lib --ignore index.jsx",
-    "lint": "eslint --ext .jsx src/ --fix"
+    "build": "npm run lint && rimraf lib && babel src --out-dir lib",
+    "lint": "eslint --ext .jsx src/ --fix",
+    "deploy": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",

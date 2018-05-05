@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * @authors ZiQiangWang
  * @email   814120507@qq.com
  * @date    2017-08-01 23:21:12
@@ -18,7 +18,7 @@ const PATHS = {
 };
 
 module.exports = {
-  entry: './src/index',
+  entry: './example/index',
   output: {
     path: PATHS.dist,
     filename: 'js/[name].bundle.js'
@@ -29,7 +29,7 @@ module.exports = {
         test: /\.jsx$/,
         use: ['babel-loader'],
         exclude: PATHS.node_modules,
-        include: PATHS.src,
+        include: PATHS.example,
       },
       {
         test: /\.css$/,
@@ -40,7 +40,7 @@ module.exports = {
   plugins: [
     // html文件导出，这里的将文件导出到根目录
     new htmlWebpackPlugin({
-      template: './src/index.html',
+      template: './example/index.html',
       filename: 'index.html',
       inject: 'body',
     })

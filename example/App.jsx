@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
+import ReactCodeMirror from '../src/react-cmirror';
 import 'codemirror/mode/markdown/markdown';
 import 'codemirror/theme/monokai.css';
-import ReactCodeMirror from './react-cmirror';
 
 export default class App extends Component {
   constructor(props) {
