@@ -13,8 +13,8 @@ import 'codemirror/lib/codemirror.css';
 class ReactCodeMirror extends Component {
   constructor(props) {
     super(props);
-    this.codemirror = undefined;
-    this.codemirrorInstance = undefined;
+    this.codemirror = null;
+    this.codemirrorInstance = null;
   }
 
   componentDidMount() {
@@ -34,7 +34,9 @@ class ReactCodeMirror extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== undefined && nextProps.value !== this.props.value) {
+    const val = this.codemirrorInstance.getValue();
+    const next = nextProps.value;
+    if (next !== undefined && next !== this.props.value && next !== val) {
       this.codemirrorInstance.setValue(nextProps.value);
     }
   }
