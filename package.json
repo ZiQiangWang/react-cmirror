@@ -1,6 +1,6 @@
 {
   "name": "react-cmirror",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Codemirror Component for React.js, all Codemirror options and event are supported.",
   "main": "./lib/react-cmirror.js",
   "scripts": {
@@ -26,10 +26,12 @@
   },
   "homepage": "https://github.com/ZiQiangWang/react-cm#readme",
   "dependencies": {
-    "codemirror": "^5.28.0",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "codemirror": "^5.28.0"
+  },
+  "peerDependencies": {
+      "prop-types": "^15.5.10",
+      "react": "^15.6.1",
+      "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
