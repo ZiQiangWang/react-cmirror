@@ -1,0 +1,96 @@
+# react-cmirror
+
+> react-cmirror是一个对codemirror组件的react封装，支持所有的codemirror的配置和事件。
+
+English Doc [Click here](README.md)
+
+[![npm](https://img.shields.io/npm/v/react-cmirror.svg)](https://www.npmjs.com/package/jest-canvas-mock)
+[![npm](https://img.shields.io/npm/dm/react-cmirror.svg)](https://www.npmjs.com/package/react-cmirror)
+
+## 1. 安装
+
+```js
+npm install --save react-cmirror
+```
+
+## 2. 运行例子
+
+执行以下命令，在本地运行例子：
+
+```js
+npm install
+npm start
+```
+
+## 3. 使用说明
+
+最简使用方案:
+
+```js
+import ReactCodeMirror from 'react-cmirror';
+<ReactCodeMirror value={text} />
+```
+
+## 4. 参数
+
+- `value`:  CodeMirror显示的值
+- `options`:  CodeMirror的配置, 参考 [ 这里](http://codemirror.net/doc/manual.html#config) 查看所有可用的配置.
+- `className`  自定义类
+- `style`  自定义样式
+
+**注意**: `className` 和 `style` 是对封装CodeMirror的容器起作用的,如果想改变CodeMirror本身的样式，参考 [这里](http://codemirror.net/doc/manual.html#styling)
+
+## 5. 事件
+
+CodeMirror 支持各种 [事件](https://codemirror.net/doc/manual.html#events), 请按照以下规则响应事件操作:
+
+- 将CodeMirror支持的事件名首字母大写，并在前面添加`on`，以此作为属性
+- 事件处理函数接受的参数，是CodeMirror定义的参数
+
+以滚动事件为例，应该设置`onScroll`, 其处理函数接受CodeMirror的实例
+
+```js
+handleScroll = (instance /*CodeMirror instance*/) => {
+  console.log(instance);
+}
+
+<ReactCodeMirror onScroll={this.handleScroll} />
+```
+
+## 6. 访问CodeMirror本身
+
+可以通过使用`ref`获得CodeMirror的实例`codemirrorInstance`和CodeMirror对象`codemirror`
+
+```js
+getInstance = (instance) => {
+  this.codemirror = instance.codemirror;
+  this.codemirrorInstance = instance.codemirrorInstance;
+}
+<ReactCodeMirror ref={this.getInstance}/>
+```
+
+## 7. 设定语言和主题
+
+**语言类型**
+CodeMirror 支持各种类型语言的语法高亮.  [这里](https://codemirror.net/mode/) 是可用的语言类型.但是在默认情况下，没有设置该参数，可以通过以下方式来支持:
+
+- 从codemirror的 `mode` 文件夹下导入mode
+- 在 `options` 中设置`mode`选项
+
+**主题**
+通过设置主题，可以改变各种配色方案，支持的主题可以在 [这里](http://codemirror.net/demo/theme.html)查看，使用方式如下：
+
+- 从codemirror的 `theme` 文件夹下导入主题
+- 在 `options` 中设置`theme`选项
+
+```js
+import ReactCodeMirror from 'react-cmirror';
+import 'codemirror/mode/markdown/markdown';
+import 'codemirror/theme/monokai.css';
+
+<ReactCodeMirror options={{mode: 'markdown', theme: 'monokai'}} />
+```
+
+## License
+
+Copyright (c) 2017 ZiQiangWang [MIT](https://github.com/ZiQiangWang/react-cmirror/blob/master/LICENSE) Licensed.

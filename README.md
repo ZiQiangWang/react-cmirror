@@ -2,6 +2,8 @@
 
 > Codemirror Component for React.js, all Codemirror options and events are supported.
 
+中文版说明文档[点这里](README_zh.md)
+
 [![npm](https://img.shields.io/npm/v/react-cmirror.svg)](https://www.npmjs.com/package/jest-canvas-mock)
 [![npm](https://img.shields.io/npm/dm/react-cmirror.svg)](https://www.npmjs.com/package/react-cmirror)
 
@@ -25,13 +27,8 @@ npm start
 Minimal usage:
 
 ```js
-import React from 'react';
-import { render } from 'react-dom';
 import ReactCodeMirror from 'react-cmirror';
-render(
-  <ReactCodeMirror />,
-  document.getElementById('root'),
-);
+<ReactCodeMirror value={text} />
 ```
 
 ## 4. Properties
@@ -53,22 +50,11 @@ CodeMirror support kinds of [Events](https://codemirror.net/doc/manual.html#even
 For example, to deal with `scroll` event, you need set property `onScroll`, and handeScroll will recieve `instance` argument :
 
 ```js
-import React, {Component} from 'react';
-import ReactCodeMirror from 'react-cmirror';
-class Demo extends Component {
-  handleScroll = (instance /*CodeMirror instance*/) => {
-    console.log(instance);
-  }
-
-  render() {
-    return (
-      <ReactCodeMirror
-        onScroll={this.handleScroll}
-      />
-    )
-  }
+handleScroll = (instance /*CodeMirror instance*/) => {
+  console.log(instance);
 }
-export default Demo;
+
+<ReactCodeMirror onScroll={this.handleScroll} />
 ```
 
 ## 6. Access to CodeMirror
@@ -98,20 +84,11 @@ To change the color schemes of highlighting, theme option is supplied, these  [T
 - set `theme` in `options` property
 
 ```js
-import React from 'react';
-import { render } from 'react-dom';
 import ReactCodeMirror from 'react-cmirror';
 import 'codemirror/mode/markdown/markdown';
 import 'codemirror/theme/monokai.css';
-render(
-  <ReactCodeMirror
-    options={{
-      mode: 'markdown',
-      theme: 'monokai',
-    }}
-  />,
-  document.getElementById('root'),
-);
+
+<ReactCodeMirror options={{mode: 'markdown', theme: 'monokai'}} />
 ```
 
 ## License
