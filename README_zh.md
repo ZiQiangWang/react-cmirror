@@ -2,7 +2,7 @@
 
 > react-cmirror是一个对codemirror组件的react封装，支持所有的codemirror的配置和事件。
 
-English Doc [Click here](README.md)
+[中文](README_zh.md)|[English](README.md)
 
 [![npm](https://img.shields.io/npm/v/react-cmirror.svg)](https://www.npmjs.com/package/jest-canvas-mock)
 [![npm](https://img.shields.io/npm/dm/react-cmirror.svg)](https://www.npmjs.com/package/react-cmirror)
