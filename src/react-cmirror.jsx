@@ -14,36 +14,36 @@ class ReactCodeMirror extends Component {
   constructor(props) {
     super(props);
     this.codemirror = null;
-    this.codemirrorInstance = null;
+    this.editor = null;
   }
 
   componentDidMount() {
     // 生成codemirror实例
-    this.codemirrorInstance = CodeMirror.fromTextArea(this.textarea, this.props.options);
+    this.editor = CodeMirror.fromTextArea(this.textarea, this.props.options);
     // 获取CodeMirror用于获取其中的一些常量
     this.codemirror = CodeMirror;
     // 事件处理映射
     const eventDict = this.getEventHandleFromProps();
 
     Object.keys(eventDict).forEach((event) => {
-      this.codemirrorInstance.on(eventDict[event], this.props[event]);
+      this.editor.on(eventDict[event], this.props[event]);
     });
 
     // 初始化值
-    this.codemirrorInstance.setValue(this.props.value || '');
+    this.editor.setValue(this.props.value || '');
   }
 
   componentWillReceiveProps(nextProps) {
-    const val = this.codemirrorInstance.getValue();
+    const val = this.editor.getValue();
     const next = nextProps.value;
     if (next !== undefined && next !== this.props.value && next !== val) {
-      this.codemirrorInstance.setValue(nextProps.value);
+      this.editor.setValue(nextProps.value);
     }
   }
 
   componentWillUnmount() {
-    if (this.codemirrorInstance) {
-      this.codemirrorInstance.toTextArea();
+    if (this.editor) {
+      this.editor.toTextArea();
     }
   }
 

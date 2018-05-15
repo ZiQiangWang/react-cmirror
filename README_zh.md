@@ -59,12 +59,12 @@ handleScroll = (instance /*CodeMirror instance*/) => {
 
 ## 6. 访问CodeMirror本身
 
-可以通过使用`ref`获得CodeMirror的实例`codemirrorInstance`和CodeMirror对象`codemirror`
+可以通过使用`ref`获得CodeMirror的实例`editor`和CodeMirror对象`codemirror`
 
 ```js
 getInstance = (instance) => {
   this.codemirror = instance.codemirror;
-  this.codemirrorInstance = instance.codemirrorInstance;
+  this.editor = instance.editor;
 }
 <ReactCodeMirror ref={this.getInstance}/>
 ```

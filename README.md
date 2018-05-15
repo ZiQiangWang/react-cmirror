@@ -59,12 +59,12 @@ handleScroll = (instance /*CodeMirror instance*/) => {
 
 ## 6. Access to CodeMirror
 
-You can get CodeMirror instance from `codemirrorInstance` and CodeMirror object from `codemirror` by using ref.
+You can get CodeMirror instance from `editor` and CodeMirror object from `codemirror` by using ref.
 
 ```js
 getInstance = (instance) => {
   this.codemirror = instance.codemirror;
-  this.codemirrorInstance = instance.codemirrorInstance;
+  this.editor = instance.editor;
 }
 <ReactCodeMirror ref={this.getInstance}/>
 ```
