@@ -42,8 +42,8 @@ class ReactCodeMirror extends Component {
   }
 
   componentWillUnmount() {
-    if (this.codemirror) {
-      this.codemirror.toTextArea();
+    if (this.codemirrorInstance) {
+      this.codemirrorInstance.toTextArea();
     }
   }
 
