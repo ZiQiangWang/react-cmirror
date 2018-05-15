@@ -4,7 +4,7 @@
 
 [中文](README_zh.md)|[English](README.md)
 
-[![npm](https://img.shields.io/npm/v/react-cmirror.svg)](https://www.npmjs.com/package/jest-canvas-mock)
+[![npm](https://img.shields.io/npm/v/react-cmirror.svg)](https://www.npmjs.com/package/react-cmirror)
 [![npm](https://img.shields.io/npm/dm/react-cmirror.svg)](https://www.npmjs.com/package/react-cmirror)
 
 ## 1. 安装
