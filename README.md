@@ -18,7 +18,7 @@ npm install --save react-cmirror
 To build the examples locally, run:
 
 ```js
-npm install --save
+npm install
 npm run start
 ```
 

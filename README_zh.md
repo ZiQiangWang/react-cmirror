@@ -18,7 +18,7 @@ npm install --save react-cmirror
 执行以下命令，在本地运行例子：
 
 ```js
-npm install --save
+npm install
 npm run start
 ```
 
