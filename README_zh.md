@@ -18,8 +18,8 @@ npm install --save react-cmirror
 执行以下命令，在本地运行例子：
 
 ```js
-npm install
-npm start
+npm install --save
+npm run start
 ```
 
 ## 3. 使用说明
@@ -35,10 +35,10 @@ import ReactCodeMirror from 'react-cmirror';
 
 - `value`:  CodeMirror显示的值
 - `options`:  CodeMirror的配置, 参考 [ 这里](http://codemirror.net/doc/manual.html#config) 查看所有可用的配置.
-- `className`  自定义类
-- `style`  自定义样式
+- `width`:  设置编辑器宽度，可以使用数字（例如： 400，单位为像素）、CSS单位（例如: '100%'，如果设置为null，表示宽度不需要改变
+- `height`:  设置编辑器高度，和宽度类似
 
-**注意**: `className` 和 `style` 是对封装CodeMirror的容器起作用的,如果想改变CodeMirror本身的样式，参考 [这里](http://codemirror.net/doc/manual.html#styling)
+**注意**: `width` 和 `height` 会覆盖CodeMirror的CSS样式，如果有其他方面的修改需求，参考 [这里](http://codemirror.net/doc/manual.html#styling)
 
 ## 5. 事件
 

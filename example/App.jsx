@@ -39,6 +39,8 @@ export default class App extends Component {
         <ReactCodeMirror
           ref={this.getInstance}
           value={text}
+          height='500px'
+          width="100%"
           options={{
             autofocus: true,
             mode: 'markdown',

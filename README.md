@@ -18,8 +18,8 @@ npm install --save react-cmirror
 To build the examples locally, run:
 
 ```js
-npm install
-npm start
+npm install --save
+npm run start
 ```
 
 ## 3. Usage
@@ -35,10 +35,10 @@ import ReactCodeMirror from 'react-cmirror';
 
 - `value`:  the editor value
 - `options`:  options for CodeMirror, see the [ CodeMirror Configuration](http://codemirror.net/doc/manual.html#config) for available options.
-- `className`  set custom css class of  the editor
-- `style`  set custom style of the editor
+- `width`:  set width the editor, width and height can be either numbers (interpreted as pixels) or CSS units ("100%", for example). You can pass null for either of them to indicate that that dimension should not be changed.
+- `height`:  set height the editor, same as width
 
-**Note**: `className` and `style` are used for the wrapper of CodeMirror, if you want to change the style of CodeMirror, refer to [CodeMirror Customized Styling](http://codemirror.net/doc/manual.html#styling) for detail.
+**Note**: `width` and `height` overriding the css style of CodeMirror, if you want to change the style of CodeMirror, refer to [CodeMirror Customized Styling](http://codemirror.net/doc/manual.html#styling) for detail.
 
 ## 5. Events
 

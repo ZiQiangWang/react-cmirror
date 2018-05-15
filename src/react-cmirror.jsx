@@ -29,8 +29,12 @@ class ReactCodeMirror extends Component {
       this.editor.on(eventDict[event], this.props[event]);
     });
 
+    const { value, width, height } = this.props;
     // 初始化值
-    this.editor.setValue(this.props.value || '');
+    this.editor.setValue(value || '');
+
+    // 设置尺寸
+    this.editor.setSize(width, height);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -64,11 +68,8 @@ class ReactCodeMirror extends Component {
   }
 
   render() {
-    const { className, style } = this.props;
     return (
-      <div className={className} style={style}>
-        <textarea ref={(instance) => { this.textarea = instance; }} />
-      </div>
+      <textarea ref={(instance) => { this.textarea = instance; }} />
     );
   }
 }
@@ -76,15 +77,21 @@ class ReactCodeMirror extends Component {
 ReactCodeMirror.defaultProps = {
   value: '',
   options: {},
-  className: '',
-  style: {},
+  width: null,
+  height: null,
 };
 
 ReactCodeMirror.propTypes = {
   value: PropTypes.string,
   options: PropTypes.object,
-  className: PropTypes.string,
-  style: PropTypes.object,
+  width: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  height: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 export default ReactCodeMirror;
