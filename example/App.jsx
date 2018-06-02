@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ReactCodeMirror from '../src/react-cmirror';
+import ReactCodeMirror from '../lib/react-cmirror';
 import 'codemirror/mode/markdown/markdown';
 import 'codemirror/theme/monokai.css';
 
@@ -9,7 +9,12 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      text: 'test',
+      text: `# CHNAGELOG
+
+## 1.2.0(2018-06-02)
+
+- 取消了属性class和style，添加了width和height属性，用来修改尺寸
+- 修改向外暴露的codemirror相关属性，editor作为codemirror实例，codemirror为对象本身`,
     };
   }
 
@@ -43,6 +48,8 @@ export default class App extends Component {
           width="100%"
           options={{
             autofocus: true,
+            lineWrapping: true,
+            lineNumbers: true,
             mode: 'markdown',
             theme: 'monokai',
           }}
