@@ -28,9 +28,7 @@
   },
   "homepage": "https://github.com/ZiQiangWang/react-cmirror#readme",
   "dependencies": {
-    "codemirror": "^5.38.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "codemirror": "^5.38.0"
   },
   "peerDependencies": {
     "prop-types": ">=15.5.10",
