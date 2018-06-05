@@ -33,8 +33,10 @@ class ReactCodeMirror extends Component {
     // 初始化值
     this.editor.setValue(value || '');
 
-    // 设置尺寸
-    this.editor.setSize(width || null, height || null);
+    if (width || height) {
+      // 设置尺寸
+      this.editor.setSize(width, height);
+    }
   }
 
   componentWillReceiveProps(nextProps) {

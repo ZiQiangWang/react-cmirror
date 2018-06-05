@@ -1,10 +1,3 @@
-/**
- *
- * @authors ZiQiangWang
- * @email   814120507@qq.com
- * @date    2017-08-01 23:21:12
- */
-
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -16,14 +9,18 @@ const PATHS = {
 };
 
 module.exports = {
-  mode: 'development',
-  entry: './example/index',
+  mode: 'production',
+  entry: './src/react-cmirror',
+  output: {
+    filename: 'react-cmirror.min.js',
+    library: "react-cmirror",
+    libraryTarget: "umd"
+  },
   module: {
     rules: [
       {
         test: /\.jsx$/,
         use: ['babel-loader'],
-        exclude: PATHS.node_modules,
       },
       {
         test: /\.css$/,
@@ -31,15 +28,12 @@ module.exports = {
       },
     ]
   },
-  plugins: [
-    // html文件导出，这里的将文件导出到根目录
-    new htmlWebpackPlugin({
-      template: './example/index.html',
-      filename: 'index.html',
-      inject: 'body',
-    })
-  ],
   resolve: {
-    extensions: ['.js','.jsx'] //后缀名自动补全
-  }
+    extensions: ['.js', '.jsx', '.css'] //后缀名自动补全
+  },
+  externals : {
+    'react': 'react',
+    'prop-types': 'prop-types',
+    'codemirror': 'codemirror'
+  },
 }

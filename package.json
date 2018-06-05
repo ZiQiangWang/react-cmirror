@@ -1,12 +1,12 @@
 {
   "name": "react-cmirror",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Codemirror Component for React.js, all Codemirror options and event are supported.",
-  "main": "./lib/react-cmirror.js",
+  "main": "./dist/react-cmirror.min.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "build": "npm run lint && rimraf lib && babel src --out-dir lib",
-    "lint": "eslint --ext .jsx src/ --fix",
+    "build": "npm run lint && webpack --config webpack.config.prod.js",
+    "lint": "eslint --ext .jsx src --fix",
     "commit": "git add . && git commit -m \"deploy\" && git push",
     "deploy": "npm run build && npm run commit && npm publish"
   },
@@ -28,7 +28,9 @@
   },
   "homepage": "https://github.com/ZiQiangWang/react-cmirror#readme",
   "dependencies": {
-    "codemirror": "^5.28.0"
+    "codemirror": "^5.38.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
   },
   "peerDependencies": {
     "prop-types": ">=15.5.10",
@@ -36,25 +38,23 @@
     "react-dom": ">=15.6.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.1",
+    "babel-loader": "^7.1.4",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "css-loader": "^0.28.4",
-    "eslint": "^4.3.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.1.0",
-    "html-loader": "^0.5.0",
-    "html-webpack-plugin": "^2.30.0",
-    "rimraf": "^2.6.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.18.2",
-    "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.6.1"
+    "webpack": "^4.11.0",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4"
   }
 }

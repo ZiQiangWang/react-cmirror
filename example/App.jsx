@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import ReactCodeMirror from '../lib/react-cmirror';
-import 'codemirror/mode/markdown/markdown';
+import ReactCodeMirror from '../dist/react-cmirror.min';
 import 'codemirror/theme/monokai.css';
+import 'codemirror/mode/markdown/markdown';
 
 export default class App extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ export default class App extends Component {
         <ReactCodeMirror
           ref={this.getInstance}
           value={text}
-          height='500px'
+          height="500px"
           width="100%"
           options={{
             autofocus: true,
