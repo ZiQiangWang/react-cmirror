@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ReactCodeMirror from '../dist/react-cmirror.min';
+import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 import 'codemirror/mode/markdown/markdown';
 

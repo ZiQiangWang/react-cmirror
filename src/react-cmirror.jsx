@@ -8,7 +8,6 @@
 import CodeMirror from 'codemirror';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import 'codemirror/lib/codemirror.css';
 
 class ReactCodeMirror extends Component {
   constructor(props) {

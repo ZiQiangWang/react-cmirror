@@ -24,10 +24,11 @@ npm run start
 
 ## 3. 使用说明
 
-最简使用方案:
+最简使用方案，请务必保证导入`codemirror.css`文件:
 
 ```js
 import ReactCodeMirror from 'react-cmirror';
+import 'codemirror/lib/codemirror.css';
 <ReactCodeMirror value={text} />
 ```
 
@@ -85,6 +86,7 @@ CodeMirror 支持各种类型语言的语法高亮.  [这里](https://codemirror
 
 ```js
 import ReactCodeMirror from 'react-cmirror';
+import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/markdown/markdown';
 import 'codemirror/theme/monokai.css';
 
