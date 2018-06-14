@@ -91,6 +91,17 @@ import 'codemirror/theme/monokai.css';
 <ReactCodeMirror options={{mode: 'markdown', theme: 'monokai'}} />
 ```
 
+## 8. 插件
+
+[插件](http://codemirror.net/doc/manual.html#addons) 用来给Codemirror提供额外的功能，在导入 `react-cmirror` 导入插件对应的文件，并按照说明设置options
+
+```js
+import ReactCodeMirror from 'react-cmirror';
+import 'codemirror/addon/display/fullscreen';
+import 'codemirror/addon/display/fullscreen.css';
+<ReactCodeMirror options={{fullScreen: true}} />
+```
+
 ## License
 
 Copyright (c) 2017 ZiQiangWang [MIT](https://github.com/ZiQiangWang/react-cmirror/blob/master/LICENSE) Licensed.

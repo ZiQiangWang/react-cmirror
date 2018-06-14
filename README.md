@@ -91,6 +91,19 @@ import 'codemirror/theme/monokai.css';
 <ReactCodeMirror options={{mode: 'markdown', theme: 'monokai'}} />
 ```
 
+## 8. Addon
+
+[Addons](http://codemirror.net/doc/manual.html#addons) are used to  implement extra editor functionality, import addon after `react-cmirror`, and set options follow the instruction.
+
+```js
+import ReactCodeMirror from 'react-cmirror';
+import 'codemirror/addon/display/fullscreen';
+import 'codemirror/addon/display/fullscreen.css';
+<ReactCodeMirror options={{fullScreen: true}} />
+```
+
+
+
 ## License
 
 Copyright (c) 2017 ZiQiangWang [MIT](https://github.com/ZiQiangWang/react-cmirror/blob/master/LICENSE) Licensed.

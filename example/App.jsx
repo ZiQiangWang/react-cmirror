@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import ReactCodeMirror from '../dist/react-cmirror.min';
+import ReactCodeMirror from '../src/react-cmirror';
+import 'codemirror/addon/display/fullscreen';
+import 'codemirror/addon/display/fullscreen.css';
 import 'codemirror/theme/monokai.css';
 import 'codemirror/theme/material.css';
 import 'codemirror/theme/night.css';
@@ -79,10 +81,10 @@ export default class App extends Component {
         <ReactCodeMirror
           ref={this.getInstance}
           value={text}
-          height="500px"
           width="100%"
           options={{
             autofocus: true,
+            fullScreen: true,
             lineWrapping: true,
             lineNumbers: true,
             mode: mode,
