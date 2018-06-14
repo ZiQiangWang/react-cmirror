@@ -1,4 +1,9 @@
 # CHNAGELOG
+##1.4.0(2018-06-15)
+
+- codemirror.css的导入方式不是影响异步加载时样式错乱的原因，仍由库本身引入
+- 响应codemirror的option实时变换，例如动态切换theme和mode
+
 ## 1.3.0(2018-06-13)
 
 - 将codemirror.css提出，在外部导入

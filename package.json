@@ -1,6 +1,6 @@
 {
   "name": "react-cmirror",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Codemirror Component for React.js, all Codemirror options and event are supported.",
   "main": "./dist/react-cmirror.min.js",
   "scripts": {
@@ -28,7 +28,9 @@
   },
   "homepage": "https://github.com/ZiQiangWang/react-cmirror#readme",
   "dependencies": {
-    "codemirror": "^5.38.0"
+    "codemirror": "^5.38.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "peerDependencies": {
     "prop-types": ">=15.5.10",

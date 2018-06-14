@@ -24,11 +24,10 @@ npm run start
 
 ## 3. Usage
 
-Minimal usage, Ensure that `codemirror.css` loaded:
+Minimal usage:
 
 ```js
 import ReactCodeMirror from 'react-cmirror';
-import 'codemirror/lib/codemirror.css';
 <ReactCodeMirror value={text} />
 ```
 
@@ -86,7 +85,6 @@ To change the color schemes of highlighting, theme option is supplied, these  [T
 
 ```js
 import ReactCodeMirror from 'react-cmirror';
-import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/markdown/markdown';
 import 'codemirror/theme/monokai.css';
 

@@ -8,6 +8,7 @@
 import CodeMirror from 'codemirror';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import 'codemirror/lib/codemirror.css';
 
 class ReactCodeMirror extends Component {
   constructor(props) {
@@ -43,6 +44,14 @@ class ReactCodeMirror extends Component {
     const next = nextProps.value;
     if (next !== undefined && next !== this.props.value && next !== val) {
       this.editor.setValue(nextProps.value);
+    }
+    const { options } = nextProps;
+    if (typeof options === 'object') {
+      Object.keys(options).forEach((name) => {
+        if (JSON.stringify(this.props.options[name]) !== JSON.stringify(options[name])) {
+          this.editor.setOption(name, options[name]);
+        }
+      });
     }
   }
 

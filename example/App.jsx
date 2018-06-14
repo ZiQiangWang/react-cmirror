@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 
 import ReactCodeMirror from '../dist/react-cmirror.min';
-import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
+import 'codemirror/theme/material.css';
+import 'codemirror/theme/night.css';
 import 'codemirror/mode/markdown/markdown';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/python/python';
 
+
+const themes = ['monokai', 'material', 'night'];
+const modes = ['markdown', 'javascript', 'python']
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +22,8 @@ export default class App extends Component {
 
 - 取消了属性class和style，添加了width和height属性，用来修改尺寸
 - 修改向外暴露的codemirror相关属性，editor作为codemirror实例，codemirror为对象本身`,
+      theme: 'monokai',
+      mode: 'markdown'
     };
   }
 
@@ -36,12 +44,38 @@ export default class App extends Component {
     });
   }
 
+  changeTheme = (e) => {
+    this.setState({ theme: e.target.value });
+  }
+
+  changeMode = (e) => {
+    this.setState({ mode: e.target.value });
+  }
 
   render() {
-    const { text } = this.state;
+    const { text, theme, mode } = this.state;
+    const themeOptions = themes.map((item, index) => {
+      return <option key={index}>{ item }</option>
+    });
+
+    const modeOptions = modes.map((item, index) => {
+      return <option key={index}>{ item }</option>
+    });
+
     return (
       <div>
-        <input value={text} onChange={this.inputChange} />
+
+        <textarea value={text} onChange={this.inputChange} style={{
+          width: '100%',
+          height: '100px'
+        }}/>
+        <select value={theme} onChange={this.changeTheme}>
+          {themeOptions}
+        </select>
+
+        <select value={mode} onChange={this.changeMode}>
+          {modeOptions}
+        </select>
         <ReactCodeMirror
           ref={this.getInstance}
           value={text}
@@ -51,8 +85,8 @@ export default class App extends Component {
             autofocus: true,
             lineWrapping: true,
             lineNumbers: true,
-            mode: 'markdown',
-            theme: 'monokai',
+            mode: mode,
+            theme: theme,
           }}
 
           onChange={this.handleChange}
