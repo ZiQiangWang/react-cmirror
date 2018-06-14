@@ -102,7 +102,9 @@ import 'codemirror/addon/display/fullscreen.css';
 <ReactCodeMirror options={{fullScreen: true}} />
 ```
 
+## 9. Async loading
 
+Asynchronous loading page may cause unexpected rendering, use addon [autorefresh](http://codemirror.net/addon/display/autorefresh.js) to resolve it. Or you can call **refresh** function of CodeMirror manually after the page loaded.
 
 ## License
 

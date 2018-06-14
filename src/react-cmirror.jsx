@@ -45,13 +45,17 @@ class ReactCodeMirror extends Component {
     if (next !== undefined && next !== this.props.value && next !== val) {
       this.editor.setValue(nextProps.value);
     }
-    const { options } = nextProps;
+    const { options, width, height } = nextProps;
     if (typeof options === 'object') {
       Object.keys(options).forEach((name) => {
         if (JSON.stringify(this.props.options[name]) !== JSON.stringify(options[name])) {
           this.editor.setOption(name, options[name]);
         }
       });
+    }
+
+    if (width !== this.props.width || height !== this.props.height) {
+      this.editor.setSize(width, height);
     }
   }
 
@@ -94,14 +98,20 @@ ReactCodeMirror.defaultProps = {
 ReactCodeMirror.propTypes = {
   value: PropTypes.string,
   options: PropTypes.object,
-  width: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  height: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  width(props, propName, componentName) {
+    const width = props[propName];
+    if (!(width === null || typeof width === 'number' || typeof width === 'string')) {
+      return new Error(`Invalid prop \`${propName}\` supplied to` +
+        ` \`${componentName}\`. Validation failed.`);
+    }
+  },
+  height(props, propName, componentName) {
+    const height = props[propName];
+    if (!(height === null || typeof height === 'number' || typeof height === 'string')) {
+      return new Error(`Invalid prop \`${propName}\` supplied to` +
+        ` \`${componentName}\`. Validation failed.`);
+    }
+  },
 };
 
 export default ReactCodeMirror;

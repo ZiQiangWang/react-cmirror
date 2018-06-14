@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 import ReactCodeMirror from '../src/react-cmirror';
-import 'codemirror/addon/display/fullscreen';
-import 'codemirror/addon/display/fullscreen.css';
 import 'codemirror/theme/monokai.css';
 import 'codemirror/theme/material.css';
 import 'codemirror/theme/night.css';
@@ -25,7 +23,9 @@ export default class App extends Component {
 - 取消了属性class和style，添加了width和height属性，用来修改尺寸
 - 修改向外暴露的codemirror相关属性，editor作为codemirror实例，codemirror为对象本身`,
       theme: 'monokai',
-      mode: 'markdown'
+      mode: 'markdown',
+      width: '100%',
+      height: '400'
     };
   }
 
@@ -54,8 +54,16 @@ export default class App extends Component {
     this.setState({ mode: e.target.value });
   }
 
+  changeWidth = (e) => {
+    this.setState({ width: e.target.value });
+  }
+
+  changeHeight = (e) => {
+    this.setState({ height: e.target.value });
+  }
+
   render() {
-    const { text, theme, mode } = this.state;
+    const { text, theme, mode, width, height } = this.state;
     const themeOptions = themes.map((item, index) => {
       return <option key={index}>{ item }</option>
     });
@@ -78,17 +86,21 @@ export default class App extends Component {
         <select value={mode} onChange={this.changeMode}>
           {modeOptions}
         </select>
+        <label>宽</label>
+        <input value={width} onChange={this.changeWidth}/>
+        <label>高</label>
+        <input value={height} onChange={this.changeHeight}/>
         <ReactCodeMirror
           ref={this.getInstance}
           value={text}
-          width="100%"
+          width={width}
+          height={height}
           options={{
             autofocus: true,
-            fullScreen: true,
             lineWrapping: true,
             lineNumbers: true,
-            mode: mode,
-            theme: theme,
+            mode,
+            theme
           }}
 
           onChange={this.handleChange}

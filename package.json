@@ -1,6 +1,6 @@
 {
   "name": "react-cmirror",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Codemirror Component for React.js, all Codemirror options and event are supported.",
   "main": "./dist/react-cmirror.min.js",
   "scripts": {

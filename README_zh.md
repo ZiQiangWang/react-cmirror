@@ -102,6 +102,10 @@ import 'codemirror/addon/display/fullscreen.css';
 <ReactCodeMirror options={{fullScreen: true}} />
 ```
 
+## 9. 异步加载
+
+react页面异步加载可能会导致渲染问题，使用插件[autorefresh](http://codemirror.net/addon/display/autorefresh.js) 解决，或者在页面加载完毕后，手动调用CodeMirror的refresh方法。
+
 ## License
 
 Copyright (c) 2017 ZiQiangWang [MIT](https://github.com/ZiQiangWang/react-cmirror/blob/master/LICENSE) Licensed.
